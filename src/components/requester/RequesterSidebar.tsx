@@ -1,5 +1,7 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, CalendarCheck, Inbox, Heart, User, LifeBuoy, LogOut, ChevronsLeft, ChevronsRight, Compass } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 import logo from "@/assets/aok-logo.png";
 import {
   Sidebar,
@@ -30,8 +32,16 @@ export function RequesterSidebar() {
   const { state, toggleSidebar } = useSidebar();
   const collapsed = state === "collapsed";
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
   const isActive = (path: string, exact?: boolean) =>
     exact ? pathname === path : pathname === path || pathname.startsWith(path + "/");
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success("Signed out");
+    navigate("/auth", { replace: true });
+  };
 
   return (
     <Sidebar collapsible="icon" variant="floating">
@@ -98,11 +108,9 @@ export function RequesterSidebar() {
       <SidebarFooter className="p-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Log out">
-              <NavLink to="/" className={`flex items-center gap-3 rounded-lg ${collapsed ? "justify-center" : ""}`}>
-                <LogOut className="h-4 w-4" />
-                {!collapsed && <span className="text-sm font-medium">Log out</span>}
-              </NavLink>
+            <SidebarMenuButton onClick={handleSignOut} tooltip="Log out">
+              <LogOut className="h-4 w-4" />
+              {!collapsed && <span className="text-sm font-medium">Log out</span>}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
