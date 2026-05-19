@@ -102,41 +102,38 @@ export default function RequesterDashboard() {
         )}
       </section>
 
-      {/* Enquiries + Entitlement */}
-      <section className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="font-display text-xl font-semibold tracking-tight">Active enquiries</h2>
-            <Button size="sm" variant="ghost" className="rounded-full text-xs text-muted-foreground hover:text-foreground">
-              View all <ChevronRight className="ml-0.5 h-3.5 w-3.5" />
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {requesterEnquiries
-              .filter((e) => ["submitted", "in_progress", "proposal_received"].includes(e.status))
-              .map((e) => (
-                <button
-                  key={e.id}
-                  onClick={() => openEnquiry(e)}
-                  className="group rounded-2xl border border-border/60 bg-card/90 p-4 text-left transition-all hover:border-primary/30 hover:shadow-soft"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{e.ref}</p>
-                      <p className="mt-0.5 text-sm font-semibold">{e.eventType}</p>
-                    </div>
-                    <EnquiryStatusChip s={e.status} />
-                  </div>
-                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
-                    <span className="inline-flex items-center gap-1"><Users className="h-3 w-3" /> {e.guests}</span>
-                    <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" /> {e.location}</span>
-                    <span>· Submitted {format(new Date(e.submittedAt), "PP")}</span>
-                  </div>
-                </button>
-              ))}
-          </div>
+      {/* Enquiries */}
+      <section className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="font-display text-xl font-semibold tracking-tight">Active enquiries</h2>
+          <Button size="sm" variant="ghost" className="rounded-full text-xs text-muted-foreground hover:text-foreground">
+            View all <ChevronRight className="ml-0.5 h-3.5 w-3.5" />
+          </Button>
         </div>
-        <EntitlementWidget data={entitlement} />
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {requesterEnquiries
+            .filter((e) => ["submitted", "in_progress", "proposal_received"].includes(e.status))
+            .map((e) => (
+              <button
+                key={e.id}
+                onClick={() => openEnquiry(e)}
+                className="group rounded-2xl border border-border/60 bg-card/90 p-4 text-left transition-all hover:border-primary/30 hover:shadow-soft"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">{e.ref}</p>
+                    <p className="mt-0.5 text-sm font-semibold">{e.eventType}</p>
+                  </div>
+                  <EnquiryStatusChip s={e.status} />
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
+                  <span className="inline-flex items-center gap-1"><Users className="h-3 w-3" /> {e.guests}</span>
+                  <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" /> {e.location}</span>
+                  <span>· Submitted {format(new Date(e.submittedAt), "PP")}</span>
+                </div>
+              </button>
+            ))}
+        </div>
       </section>
 
       {/* Wishlist & Waitlist */}
