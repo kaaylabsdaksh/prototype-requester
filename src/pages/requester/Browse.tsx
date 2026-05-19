@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { format, isSameDay, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addMonths, subMonths, isSameMonth } from "date-fns";
-import { Search, Plus, LayoutList, CalendarDays, Heart, MapPin, Users, Clock3, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, LayoutList, CalendarDays, Heart, MapPin, Users, Clock3, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,7 +10,7 @@ import { RequesterShell } from "@/components/requester/RequesterShell";
 import { EventStatusChip } from "@/components/requester/EventStatusChip";
 import { EventDiscoverDrawer } from "@/components/requester/EventDiscoverDrawer";
 import { discoverEvents, discoverTypes, discoverVenues, DiscoverEvent, DISCOVER_STATUS_LABEL, DiscoverStatus } from "@/data/requesterDiscover";
-import { openEnquiry } from "@/components/requester/SubmitEnquiryDialog";
+
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -81,9 +81,6 @@ export default function BrowseEvents() {
               <CalendarDays className="mr-1.5 h-3.5 w-3.5" /> Calendar
             </ToggleBtn>
           </div>
-          <Button className="rounded-full" onClick={openEnquiry}>
-            <Plus className="mr-1.5 h-4 w-4" /> Submit enquiry
-          </Button>
         </div>
       </div>
 
