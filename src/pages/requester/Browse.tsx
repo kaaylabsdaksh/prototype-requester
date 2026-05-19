@@ -10,7 +10,7 @@ import { RequesterShell } from "@/components/requester/RequesterShell";
 import { EventStatusChip } from "@/components/requester/EventStatusChip";
 import { EventDiscoverDrawer } from "@/components/requester/EventDiscoverDrawer";
 import { discoverEvents, discoverTypes, discoverVenues, DiscoverEvent, DISCOVER_STATUS_LABEL, DiscoverStatus } from "@/data/requesterDiscover";
-import { openEnquiry } from "@/components/requester/SubmitEnquiryDialog";
+
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
