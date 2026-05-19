@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { format, isSameDay, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addMonths, subMonths, isSameMonth } from "date-fns";
-import { Search, Plus, LayoutList, CalendarDays, Heart, MapPin, Users, Clock3, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, LayoutList, CalendarDays, Heart, MapPin, Users, Clock3, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
