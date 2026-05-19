@@ -31,15 +31,11 @@ export function RequesterSidebar() {
   const { state, toggleSidebar } = useSidebar();
   const collapsed = state === "collapsed";
   const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const { signOut } = useAuth();
   const isActive = (path: string, exact?: boolean) =>
     exact ? pathname === path : pathname === path || pathname.startsWith(path + "/");
 
-  const handleSignOut = async () => {
-    await signOut();
+  const handleSignOut = () => {
     toast.success("Signed out");
-    navigate("/auth", { replace: true });
   };
 
   return (
