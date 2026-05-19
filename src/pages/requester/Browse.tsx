@@ -81,9 +81,6 @@ export default function BrowseEvents() {
               <CalendarDays className="mr-1.5 h-3.5 w-3.5" /> Calendar
             </ToggleBtn>
           </div>
-          <Button className="rounded-full" onClick={openEnquiry}>
-            <Plus className="mr-1.5 h-4 w-4" /> Submit enquiry
-          </Button>
         </div>
       </div>
 
