@@ -250,7 +250,7 @@ function BookingCard({ booking, onOpen }: { booking: RequesterBooking; onOpen: (
           </div>
           <BookingStatusChip s={booking.status} />
         </div>
-        <div className="mt-3 space-y-1.5 text-xs text-muted-foreground">
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
           <div className="inline-flex items-center gap-1.5"><CalendarCheck className="h-3.5 w-3.5" />{format(new Date(booking.date), "EEE, d MMM · HH:mm")}</div>
           <div className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />{booking.venue}</div>
           <div className="inline-flex items-center gap-1.5"><Users className="h-3.5 w-3.5" />{booking.guestCount} guests</div>
