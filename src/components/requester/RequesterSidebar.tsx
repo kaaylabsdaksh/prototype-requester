@@ -1,6 +1,5 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { LayoutDashboard, CalendarCheck, Inbox, Heart, User, LifeBuoy, LogOut, ChevronsLeft, ChevronsRight, Compass } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import logo from "@/assets/aok-logo.png";
 import {
@@ -32,15 +31,11 @@ export function RequesterSidebar() {
   const { state, toggleSidebar } = useSidebar();
   const collapsed = state === "collapsed";
   const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const { signOut } = useAuth();
   const isActive = (path: string, exact?: boolean) =>
     exact ? pathname === path : pathname === path || pathname.startsWith(path + "/");
 
-  const handleSignOut = async () => {
-    await signOut();
+  const handleSignOut = () => {
     toast.success("Signed out");
-    navigate("/auth", { replace: true });
   };
 
   return (
