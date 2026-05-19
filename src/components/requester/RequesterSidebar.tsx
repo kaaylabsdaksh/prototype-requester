@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { LayoutDashboard, CalendarCheck, Inbox, Heart, User, LifeBuoy, LogOut, ChevronsLeft, ChevronsRight, Compass } from "lucide-react";
+import { LayoutDashboard, LogOut, ChevronsLeft, ChevronsRight, Compass } from "lucide-react";
 import { toast } from "sonner";
 import logo from "@/assets/aok-logo.png";
 import {
@@ -20,11 +20,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 const items = [
   { title: "Dashboard", url: "/requester", icon: LayoutDashboard, exact: true },
   { title: "Browse Events", url: "/requester/browse", icon: Compass },
-  { title: "My Bookings", url: "/requester/bookings", icon: CalendarCheck },
-  { title: "Enquiries", url: "/requester/enquiries", icon: Inbox },
-  { title: "Wishlist", url: "/requester/wishlist", icon: Heart },
-  { title: "Profile", url: "/requester/profile", icon: User },
-  { title: "Support", url: "/requester/support", icon: LifeBuoy },
 ];
 
 export function RequesterSidebar() {
