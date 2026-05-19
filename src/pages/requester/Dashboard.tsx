@@ -54,15 +54,6 @@ export default function RequesterDashboard() {
             </h1>
             <p className="mt-1.5 text-sm text-foreground/60">Here's what's happening with your bookings today.</p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <Button size="sm" variant="outline" className="rounded-full border-border/70 bg-card/70 backdrop-blur sm:size-default">
-              <Heart className="mr-1.5 h-4 w-4" /> Wishlist
-              <Badge className="ml-2 h-5 bg-primary text-primary-foreground">{requesterWishlist.length}</Badge>
-            </Button>
-            <Button size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90 sm:size-default" onClick={openEnquiryDialog}>
-              <Plus className="mr-1.5 h-4 w-4" /> New Enquiry
-            </Button>
-          </div>
         </div>
 
         {/* Summary stats */}
