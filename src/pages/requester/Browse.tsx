@@ -237,7 +237,7 @@ function ListView({ events, wishlist, onToggleSave, onOpen }: {
                   ? "Join waitlist"
                   : e.discoverStatus === "closed"
                     ? "View details"
-                    : "Book now"}
+                    : "Enquire"}
               </Button>
               <Button size="sm" variant="ghost" className="h-7 rounded-full text-[11px]" onClick={() => onOpen(e)}>
                 Details
